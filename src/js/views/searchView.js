@@ -74,5 +74,7 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
   const end = page * resPerPage;
   recipes.slice(start, end).forEach(renderRecipe);
   // render pagination buttons
-  renderButtons(page, recipes.length, resPerPage);
+  if (Math.ceil(recipes.length / resPerPage) > 1) {
+    renderButtons(page, recipes.length, resPerPage);
+  }
 };
